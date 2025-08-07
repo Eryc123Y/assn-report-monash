@@ -2,7 +2,7 @@
 
 You can simply fork this repo and work on it on your own. Feel free to PR if this repo is still active !
 
-If you plan to distribute your version of the package, please make sure you pay respect to both [Typst packages guidelines](https://github.com/typst/packages?tab=readme-ov-file#submission-guidelines).
+If you plan to distribute your version of the package, please make sure you pay respect to [Typst packages guidelines](https://github.com/typst/packages?tab=readme-ov-file#submission-guidelines).
 
 ## Pushing to Typst packages
 

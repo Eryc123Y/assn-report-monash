@@ -1,7 +1,7 @@
 #import "../template/main.typ": *
 
 #monash-report(
-  [Lorem Ipsum Dolor Sit Amet],
+  [Ancora Imparo],
   "John Doe",
   subtitle: "Consectetur Adipiscing Elit Sed Do Eiusmod Tempor",
   student-id: "98765432",
