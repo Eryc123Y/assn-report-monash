@@ -9,7 +9,7 @@ keywords = ["monash", "university", "report", "assignment", "education", "theore
 categories = ["Paper", "Text", "Report"]
 homepage = "https://github.com/your-username/typst-report-monash"
 documentation = "https://github.com/your-username/typst-report-monash/blob/main/README.md"
-compiler = "0.12.0"
+compiler = "0.13.1"
 exclude = [
     ".gitignore",
     "guide.typ", "guide.pdf",
