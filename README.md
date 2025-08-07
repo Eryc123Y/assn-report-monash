@@ -2,6 +2,10 @@
 
 A professional Typst package for Monash University student reports, featuring Monash's official brand colors and modern design elements.
 
+## Acknowledgments
+
+This project is based on the excellent [typst-polytechnique](https://github.com/remigerme/typst-polytechnique) template by [@remigerme](https://github.com/remigerme). The Monash University edition extends this work with Monash-specific branding, colors, and styles.
+
 ## Features
 
 - **Professional Monash Branding**: Official Monash University colors and logo integration
@@ -30,7 +34,7 @@ This template uses Monash University's official brand colors:
 ### Basic Usage
 
 ```typ
-#import "template/main.typ": monash-report
+#import "template/main.typ": *
 
 #monash-report(
   "Machine Learning Applications in Healthcare",
@@ -55,20 +59,43 @@ This template uses Monash University's official brand colors:
 ### Parameters
 
 #### Required
-- `title` - Report title
-- `author` - Author name
+- `title: str` - Report title (string)
+- `author: str` - Author name (string)
 
 #### Optional
-- `subtitle` - Report subtitle
-- `student-id` - Student ID number
-- `course-code` - Course code (e.g., "FIT3080")
-- `course-name` - Full course name
-- `assignment-type` - Type of document (default: "Assignment")
-- `tutor-name` - Tutor or supervisor name
-- `date` - Submission date
-- `word-count` - Word count for the report
-- `despair-mode` - Enable larger margins (default: false)
-- `show-typst-attribution` - Show "Made with Typst" badge (default: true)
+- `subtitle: str | none` - Report subtitle (string or none, default: none)
+- `student-id: str | none` - Student ID number (string or none, default: none)
+- `course-code: str | none` - Course code (string or none, default: none)
+- `course-name: str | none` - Full course name (string or none, default: none)
+- `assignment-type: str` - Type of document (string, default: "Assignment")
+- `tutor-name: str | none` - Tutor or supervisor name (string or none, default: none)
+- `date: datetime | none` - Submission date (datetime or none, default: none)
+- `word-count: int | none` - Word count for the report (integer or none, default: none)
+- `despair-mode: bool` - Enable larger margins (boolean, default: false)
+- `show-typst-attribution: bool` - Show "Made with Typst" badge (boolean, default: true)
+- `show-outline: bool` - Show table of contents (boolean, default: true)
+- `body: content` - Report content (content block)
+
+### Function Signature
+
+```typ
+#let monash-report(
+  title: str,
+  author: str,
+  subtitle: str | none = none,
+  student-id: str | none = none,
+  course-code: str | none = none,
+  course-name: str | none = none,
+  assignment-type: str = "Assignment",
+  tutor-name: str | none = none,
+  date: datetime | none = none,
+  word-count: int | none = none,
+  despair-mode: bool = false,
+  show-typst-attribution: bool = true,
+  show-outline: bool = true,
+  body: content
+) = content
+```
 
 ## Advanced Features
 
@@ -78,7 +105,7 @@ The template includes theorem environments powered by the `thmbox` package:
 
 ```typ
 // Basic theorem
-#thmbox[
+#theorem[
   Let $f: R -> R$ be a continuous function on the closed interval $[a, b]$. 
   Then $f$ attains its maximum and minimum values on $[a, b]$.
 ]
@@ -91,55 +118,10 @@ The template includes theorem environments powered by the `thmbox` package:
 ]
 
 // Lemma
-#thmbox(title: "Lemma")[
+#lemma(title: "Lemma")[
   If a function $f$ is differentiable at a point $c$, then $f$ is continuous at $c$.
 ]
 ```
-
-### Modern Styling Functions
-
-The template includes enhanced styling functions available in `monash-colors.typ`:
-
-```typ
-// Modern quote block
-#modern-quote[
-  This is a professionally styled quote with Monash brand colors.
-]
-
-// Code block with syntax highlighting
-#modern-code(```typ
-#let x = 42
-````)
-
-// Styled table
-#modern-table(
-  columns: 2,
-  [Header 1], [Header 2],
-  [Cell 1], [Cell 2]
-)
-
-// Figure with styled caption
-#modern-figure(
-  image("chart.png"),
-  caption: [Figure 1: Sample chart]
-)
-
-// Highlight box for important content
-#highlight-box(
-  "Important Note",
-  [This content will be highlighted with Monash colors.]
-)
-```
-
-### Document Structure
-
-The template automatically handles:
-- **Cover Page**: Professional cover with Monash logo watermark
-- **Page Headers**: Course code and assignment type with Monash logo
-- **Page Footers**: Styled page numbers with decorative elements
-- **Table of Contents**: Automatic generation with `#outline()`
-- **Bibliography**: IEEE style support
-
 ## Installation
 
 ### Local Development
@@ -174,10 +156,19 @@ typst-report-monash/
 ├── assets/
 │   ├── Monash_University_logo_page.svg
 │   ├── Monash_University-04.svg
-│   └── typst.png
-└── example/
-    ├── example.typ       # Example usage
-    └── example.pdf       # Compiled example
+│   ├── monash-university-logo-cover.svg
+│   ├── filet-court.svg   # Decorative elements
+│   ├── filet-long.svg    # Decorative elements
+│   ├── thumbnail.png     # Package thumbnail
+│   ├── typst.png         # Typst attribution logo
+│   └── example.bib      # Example bibliography
+├── example/
+│   ├── example.typ       # Complete usage example
+│   └── example.pdf       # Compiled example output
+├── typst.toml           # Package configuration
+├── README.md            # This documentation
+├── LICENSE              # MIT License
+└── CONTRIBUTING.md      # Contribution guidelines
 ```
 
 ## Contributing
@@ -204,6 +195,8 @@ For issues and questions:
 - Create a new issue if needed
 - Review the example files for usage patterns
 
----
+## A Note from the Author
 
-*Maintained by Eric (@eric) - Made with ❤️ using Typst*
+Hi! I'm Eric, and this is my first contribution to the Typst community and the open source world! As a newcomer, I'm still learning the ropes of open source development, so any feedback, suggestions, or help would be greatly appreciated. Whether you're a seasoned Typst user or just starting out, your insights and contributions can help make this template better for everyone.
+
+If you notice any issues, have ideas for improvements, or want to contribute, please don't hesitate to reach out. I'm excited to learn and grow with the community!
