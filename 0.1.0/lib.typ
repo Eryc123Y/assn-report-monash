@@ -29,7 +29,7 @@
   body
 ) = {
   // Set document metadata
-  set text(lang: "en")
+  set text(lang: "en", size: 13pt)
   set document(title: title, author: author, date: if date != none { date } else { datetime.today() })
   
   // Apply page and heading styles
