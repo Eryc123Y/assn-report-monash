@@ -1,13 +1,17 @@
-#import "@preview/assn-report-monash:0.1.0": monash-report
+#import "../lib.typ": *
+#import "@preview/thmbox:0.3.0": *
+#import "@preview/codly:1.3.0": *
+#import "@preview/codly-languages:0.1.1": *
+#import "@preview/lovelace:0.3.0": *
 
 #show: monash-report.with(
   [Sample Assignment],        // title (positional)
-  "Your Name",               // author (positional)
+  "Xingyu Yang",               // author (positional)
   subtitle: "A subtitle for your assignment",
-  student-id: "12345678",
-  course-code: "ABC123",
-  course-name: "Sample Course Name",
-  assignment-type: "Assignment",
+  student-id: "33533563",
+  course-code: "FIT3080",
+  course-name: "Introduction to Artificial Intelligence",
+  assignment-type: "Assignment Report",
   tutor-name: "Dr. Sample Tutor",
   date: datetime.today(),
   word-count: 1500,
@@ -15,15 +19,24 @@
   show-typst-attribution: true,
   show-outline: true,
 )
+#show: thmbox-init()
+#show: codly-init.with()
 
-= Introduction
+= Sample Section
 
-This is a sample assignment template for Monash University students.
+#lorem(300)
 
-== Sample Section
+== Sample Subsection
 
-You can write your content here.
+#lorem(300)
 
-= Conclusion
 
-This concludes the sample assignment.
+=== Sample Sub-subsection
+
+#lorem(300)
+
+==== Sample Sub-sub-subsection
+
+#lorem(300)
+
+
